@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雙城之戰</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400;900&family=Poppins&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fa79f509a7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <h2>Arcane <span>雙城之戰</span></h2>
+        <div id="navLinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <a href="/index.html">首頁</a>
+            <a href="/introduce.html">簡介</a>
+            <a href="/anime.html">動漫</a>
+            <a href="/characters.html">角色</a>
+            <a href="/evaluation.html">留言</a>
+            <a href="/about.html">關於</a>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <section id="characters">
+        <h1>MAJOR CHARACTERS</h1>
+        <p>“你寧願為理想而死，都不願為理想而戰嗎？"
+            <br>——希爾科</p>
+        <div class="row">
+            <div class="col">
+                <img src="./images/role1.jpg" alt="library" onclick="showFullImage(event)" background="./images/role7.webp">
+
+                <p>金克丝和蔚是一对复杂的恩怨姐妹。她有着天才的头脑和狂躁的性格，由于过去的创伤，金克丝的才华反而让她成为一个难以对付的顽童。</p>
+            </div>
+            <div class="col">
+                <img src="./images/role2.jpg" alt="basketball" onclick="showFullImage(event)">
+
+                <p>这位粉色头发的斗士童年坎坷，尽管她的作风有那么一点鲁莽——但她的心始终正直。《双城之战》讲述了蔚从祖安街头的混混，一路成长为皮尔特沃夫和平守护者的过往经历。</p>
+            </div>
+            <div class="col">
+                <img src="images/role3.jpg" alt="cafeteria" onclick="showFullImage(event)">
+
+                <p>杰斯被称为皮尔特沃夫的未来守护者。他原本是个发明家，如今则是一名政治领袖。他在海克斯科技的发明中起到了至关重要的作用——一种使用科学手段对奥术能量加以利用的技术。
+                </p>
+            </div>
+            <div class="col">
+                <img src="images/role4.jpg" alt="cafeteria" onclick="showFullImage(event)">
+
+                <p>凯特琳个性顽强，意志坚定。家人眼中的她是一个不肖女，而她始终都在努力摆脱家人的掌控。其实她仍然爱着家人，但她憎恨自己与生俱来的特权。她认为财富不过是一个囚笼。</p>
+            </div>
+            <div class="col">
+                <img src="images/role5.jpg" alt="cafeteria" onclick="showFullImage(event)">
+
+                <p>维克托在祖安出生。凭借敏锐的头脑，他得以进入皮尔特沃夫生活。在海克斯科技的发明中，他是杰斯的搭档。然而，维克托的疾病逼迫着他挑战这项新技术的极限。</p>
+            </div>
+            <div class="col">
+                <img src="images/role6.jpg" alt="cafeteria" onclick="showFullImage(event)">
+
+                <p>范德尔在地下城区的势力很大，不过他只关心怎么对付皮尔特沃夫那些严厉粗暴的执法者，从他们手中保护祖安居民的安全。</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup">
+        <img id="fullImage" src="">
+    </div>
+</body>
+
+</html>
+
+<script>
+    var navLinks = document.getElementById('navLinks');
+
+    function showMenu() {
+        navLinks.style.right = '0';
+        navLinks.addEventListener('click', function () {
+            hideMenu();
+        })
+
+    }
+    function hideMenu() {
+        navLinks.style.right = '-30%';
+    }
+    function showFullImage(event) {
+        // 设置要全屏显示的图片src
+        document.getElementById('fullImage').src = event.target.src;
+        // 得到Y滚动条宽度
+        // innerWidth是以像素为单位的窗口的内部宽度。如果垂直滚动条存在，则这个属性将包括它的宽度
+        // offsetWidth 是一个只读属性，返回一个元素的布局宽度
+        var scrollbarWidth = window.innerWidth - document.body.offsetWidth;
+        // body不能滚动      
+        document.body.style.overflowY = 'hidden';
+        // 防止页面在隐藏滚动条时闪动      
+        document.body.style.marginRight = scrollbarWidth + 'px';
+
+        var popup = document.getElementById('popup');
+        popup.style.display = 'flex';
+        popup.style.animation = 'fadein 0.5s';
+        popup.onclick = function () {
+            popup.style.animation = 'fadeout 0.6s';
+            // 延时将display置为none，以让有时间动画。注意设置隐退的时间多一点会更平滑。
+            setTimeout(() => {
+                document.body.style.overflowY = 'auto';// body恢复滚动
+                document.body.style.marginRight = 0;
+                popup.style.display = 'none';
+            }, 500);
+        }
+    }
+</script>

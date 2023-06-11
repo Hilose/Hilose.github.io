@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雙城之戰</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400;900&family=Poppins&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fa79f509a7.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <h1>HH</h1>
+  <section class="header">
+    <nav>
+      <h2>Arcane <span>雙城之戰</span></h2>
+      <div id="navLinks">
+        <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+        <a href="/index.html">首頁</a>
+        <a href="/introduce.html">簡介</a>
+        <a href="/anime.html">動漫</a>
+        <a href="/characters.html">角色</a>
+        <a href="/evaluation.html">留言</a>
+        <a href="/about.html">關於</a>
+      </div>
+      <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <div class="text-box">
+
+      <h1>皮城祖安&nbsp;<span class="pulser">/ 秩序混亂</span></h1>
+      <p>當你有了改變世界的能力，就不用誰批准。<br>
+        —— 維克托</p>
+      <a href="/introduce.html" class="hero-btn">LEARN MORE</a>
+    </div>
+  </section>
 </body>
+
 </html>
+
+<script>
+  var navLinks = document.getElementById('navLinks');
+
+  function showMenu() {
+    navLinks.style.right = '0';
+    navLinks.addEventListener('click', function () {
+      hideMenu();
+    })
+
+  }
+  function hideMenu() {
+    navLinks.style.right = '-30%';
+  }
+
+
+</script>
