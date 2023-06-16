@@ -31,16 +31,18 @@
     <section id="introduction">
         <h1>INTRODUCTION</h1>
         <p style="color: #777;">“不負進步之城的美譽，我們的未來一片光明！”
-            <br>——傑斯</p>
+            <br>——傑斯
+        </p>
         <div class="row">
             <div class="col">
                 <h3>Author</h3>
                 <p> 双城之战拳头游戏开发和制作，福蒂奇制片公司负责动画制作。
                     <br>拳头游戏公司（Riot Games, Inc.）
-                    <br>是一家总部位于美国加利福尼亚州洛杉矶的电子游戏开发商、发行商和电子竞技赛事组织方。2006年9月，布兰登·贝克Brandon Beck和Marc Merrill为开发《英雄联盟》而创立了拳头游戏公司，后继续开发了多款衍生游戏及独立背景的第一人称射击游戏《无畏契约》。
+                    <br>是一家总部位于美国加利福尼亚州洛杉矶的电子游戏开发商、发行商和电子竞技赛事组织方。2006年9月，布兰登·贝克Brandon Beck和Marc
+                    Merrill为开发《英雄联盟》而创立了拳头游戏公司，后继续开发了多款衍生游戏及独立背景的第一人称射击游戏《无畏契约》。
                     <br>福蒂奇制片公司（Fortiche Production）
                     <br>是一家位于法国巴黎的动画工作室
-                    <br>他们为《英雄联盟》制作的第一部动画，是金克丝的英雄宣传片《Get Jinxed》                  
+                    <br>他们为《英雄联盟》制作的第一部动画，是金克丝的英雄宣传片《Get Jinxed》
                     <br>后来被大众熟知的S4主题曲MV《Warriors》、K/DA女团第一部音乐MV《POP STARS》和S8主题曲MV《RISE/登峰造极境》也均出自他们之手
                 </p>
             </div>
@@ -61,21 +63,20 @@
 
         </div>
     </section>
+    <script>
+        var navLinks = document.getElementById('navLinks');
+
+        function showMenu() {
+            navLinks.style.right = '0';
+            navLinks.addEventListener('click', function () {
+                hideMenu();
+            })
+
+        }
+        function hideMenu() {
+            navLinks.style.right = '-30%';
+        }
+    </script>
 </body>
 
 </html>
-
-<script>
-    var navLinks = document.getElementById('navLinks');
-
-    function showMenu() {
-        navLinks.style.right = '0';
-        navLinks.addEventListener('click', function () {
-            hideMenu();
-        })
-
-    }
-    function hideMenu() {
-        navLinks.style.right = '-30%';
-    }
-</script>

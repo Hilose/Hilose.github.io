@@ -31,10 +31,12 @@
     <section id="characters">
         <h1>MAJOR CHARACTERS</h1>
         <p>“你寧願為理想而死，都不願為理想而戰嗎？"
-            <br>——希爾科</p>
+            <br>——希爾科
+        </p>
         <div class="row">
             <div class="col">
-                <img src="./images/role1.jpg" alt="library" onclick="showFullImage(event)" background="./images/role7.webp">
+                <img src="./images/role1.jpg" alt="library" onclick="showFullImage(event)"
+                    background="./images/role7.webp">
 
                 <p>金克丝和蔚是一对复杂的恩怨姐妹。她有着天才的头脑和狂躁的性格，由于过去的创伤，金克丝的才华反而让她成为一个难以对付的顽童。</p>
             </div>
@@ -70,6 +72,45 @@
     <div id="popup">
         <img id="fullImage" src="">
     </div>
+    <script>
+        var navLinks = document.getElementById('navLinks');
+
+        function showMenu() {
+            navLinks.style.right = '0';
+            navLinks.addEventListener('click', function () {
+                hideMenu();
+            })
+
+        }
+        function hideMenu() {
+            navLinks.style.right = '-30%';
+        }
+        function showFullImage(event) {
+            // 设置要全屏显示的图片src
+            document.getElementById('fullImage').src = event.target.src;
+            // 得到Y滚动条宽度
+            // innerWidth是以像素为单位的窗口的内部宽度。如果垂直滚动条存在，则这个属性将包括它的宽度
+            // offsetWidth 是一个只读属性，返回一个元素的布局宽度
+            var scrollbarWidth = window.innerWidth - document.body.offsetWidth;
+            // body不能滚动      
+            document.body.style.overflowY = 'hidden';
+            // 防止页面在隐藏滚动条时闪动      
+            document.body.style.marginRight = scrollbarWidth + 'px';
+
+            var popup = document.getElementById('popup');
+            popup.style.display = 'flex';
+            popup.style.animation = 'fadein 0.5s';
+            popup.onclick = function () {
+                popup.style.animation = 'fadeout 0.6s';
+                // 延时将display置为none，以让有时间动画。注意设置隐退的时间多一点会更平滑。
+                setTimeout(() => {
+                    document.body.style.overflowY = 'auto';// body恢复滚动
+                    document.body.style.marginRight = 0;
+                    popup.style.display = 'none';
+                }, 500);
+            }
+        }
+    </script>
 </body>
 
 </html>
