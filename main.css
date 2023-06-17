@@ -514,3 +514,7 @@ html {
   margin: auto;
   width: 80%;
 }
+
+#about a {
+  color: #ba8964;
+}
